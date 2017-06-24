@@ -7,7 +7,7 @@ public class Game extends PApplet{
 	public static void main(String[] args) {
 		PApplet.main("elifoot.rodderscode.co.uk.Game");
 	}
-	
+
 	Player player;
 	Ball ball;
 	Team team;
@@ -15,44 +15,43 @@ public class Game extends PApplet{
 
 	// MAIN METHODS
 	public void settings() {
-		size(800, 600);
+		size(displayWidth/2, displayHeight/2);
 	}
-	
+
 	public void setup(){
-	  
-	  player = new Player(this);
-	  ball = new Ball(this);
-	  team = new Team();
-	  pitch = new Pitch(this);
-	  println(player);
+		player = new Player(this);
+		ball = new Ball(this);
+		team = new Team();
+		pitch = new Pitch(this);
+		println(player);
 	}
 
 	public void draw(){
-	  background(0);
-	  updateAll();
-	  drawAll();
+		background(0);
+		updateAll();
+		drawAll();
 	}
 
 	public void keyPressed() {
-	  if (key == 'm' || key == 'M'){
-	    ball.toggleFollowMouse();
-	  }
+		if (key == 'm' || key == 'M'){
+			ball.toggleFollowMouse();
+		}
 	}
 
 
 	// OWN METHODS
 	void drawAll(){
-	  pitch.draw();
-	  ball.draw();
-	  team.draw();
-	  player.draw();
+		pitch.draw();
+		ball.draw();
+		team.draw();
+		player.draw();
 	}
 
 	void updateAll(){
-	  team.update();
-	  player.update();
-	  ball.update();
-	  pitch.update();
+		team.update();
+		player.update();
+		ball.update();
+		pitch.update();
 	}
 
 }
